@@ -1,7 +1,7 @@
 {
   "name": "full-stack-js-test",
   "scripts": {
-    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\" \"npm run start:payment-api\"",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\" \"npm run start:frontend\" \"npm run start:payment-api\"",
     "start:backend": "cd backend && npm start",
     "start:frontend": "cd frontend && npm start",
     "start:payment-api": "cd payment-api && npm start"

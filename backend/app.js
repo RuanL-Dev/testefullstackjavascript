@@ -8,7 +8,7 @@ require('dotenv').config()
 var apiRouter = require("./routes/api");
 var indexRouter = require("./routes/index");
 
-var app = express();
+const app = express();
 
 app.use(logger("dev"));
 app.use(express.json());

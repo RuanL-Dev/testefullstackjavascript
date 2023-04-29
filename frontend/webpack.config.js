@@ -1,5 +1,8 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+
+const { resolve } = require('path');
 
 module.exports = {
   entry: './src/index.js',
@@ -22,12 +25,18 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      'react-scripts': resolve(__dirname, 'node_modules/react-scripts'),
+    },
+  },
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/index.html', to: 'index.html' }
       ]
-    })
+    }),
+    new webpack.DefinePlugin({ "global.GENTLY": false }),
   ],
   devServer: {
     contentBase: './dist/index.html',

@@ -18,7 +18,12 @@ function PaymentCreate() {
     }
   };
 
+  const handleClick = () => {
+    navigate("/");
+  }
+
   return (
+    <>
     <form onSubmit={submit}>
       <div>
         <label>Name</label>
@@ -31,7 +36,7 @@ function PaymentCreate() {
       <div>
         <label>Currency</label>
         <select name="currency" required>
-          <option value=""></option>
+          <option value="BRL">BRL</option>
           <option value="EUR">EUR</option>
           <option value="GBP">GBP</option>
           <option value="USD">USD</option>
@@ -46,6 +51,10 @@ function PaymentCreate() {
       </div>
       <Alert message={error} />
     </form>
+    <div>
+      <button onClick={handleClick}>Voltar</button>
+    </div>
+    </>
   );
 }
 

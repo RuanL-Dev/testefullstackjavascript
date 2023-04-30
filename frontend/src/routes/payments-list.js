@@ -1,22 +1,27 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Alert } from "../components";
 import { usePayment } from "../hooks/usePayment";
 
 function PaymentsList() {
   const { fetchData, payments, error } = usePayment();
   useEffect(() => {
-    // The list of payments is available from `GET /api/payments`
-    fetchData();
+    const fetchPayments = async () => {
+    try {
+      fetchData();
+    } catch (error) {
+      console.error(error);
+      }
+    };
+    fetchPayments();
     // react-hooks/exhaustive-deps
   }, []);
+
 
   return (
     <>
       <div>
         <Link to="/create">New Payment</Link>
       </div>
-      <Alert message={error} />
       <div>
         <table>
           <thead>

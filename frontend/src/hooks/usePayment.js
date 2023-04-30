@@ -9,7 +9,7 @@ export function usePayment() {
     setError(undefined);
     setLoading(true);
     try {
-      const data = await fetch("/api/payments");
+      const data = await fetch("http://localhost:3001/api/payments");
       const raw = await data.json();
       raw.error ? setError(raw.error) : setPayments(raw.payments);
     } catch (error) {
@@ -25,7 +25,7 @@ export function usePayment() {
 
     let returnValue;
     try {
-      const data = await fetch("/api/payments", {
+      const data = await fetch("http://localhost:3001/api/payments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

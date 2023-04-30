@@ -2,32 +2,25 @@
 
 ## About the project
 
-The project is a fairly typical but simplified example of a payment application.
-
-The application displays existing payments and allows the user to create new payments by completing a form.
-
-However, a number of tasks have been left for you, the developer, to complete.
-
 To get started:
 
 - Install dependencies in each of the following directories: `./`, `./frontend`, `./backend`, `./payment-api`.
-- Run `npm start` in the project's root directory.
+- Run `npm start` in the project's root directory will start all components of the application. But we do need to one more step below:
+- Run `npm build` and `npm serve` in the frontend project
 
 If there are any errors you may need to change `./.env` to pick unused ports.
 
 ## Project Structure
 
-The root directory is only a container for the components of the example application - frontend, backend, and payment API.
+Initially, there was a need to install other dependencies to be able to start and perform the tasks needed in this trial.
+You may see some libs added and changes made but I did an effort to don't moving files or changes unnecessarily to allow an easier review.
+As asked before, the focus here was in performing the tasks.Thus, I don't change the user interface. If it would be something to add, I would try to a new Frontend project starting with ReactJs + NextJS.
 
 The `./.env` (dotenv) file controls the port each component runs on. You may need to change this if the ports are already in use on your computer.
 
-Running `npm start` in the root directory will start all components of the application and should be sufficient for the purpose of this test. Pressing Ctrl-C will stop everything.
-
-NOTE: `npm start` does not install each components' dependencies.
-
 ### frontend
 
-`./frontend` contains a React application. It will auto-reload and update the browser when files change.
+`./frontend` contains a React application. 
 
 The frontend consists of two pages:
 
@@ -51,48 +44,5 @@ The payment API consists of two endpoints:
 - GET /api/payments - returns a list of existing payments
 - POST /api/payments - creates a new payment
 
-For the purpose of the test, payment data can be stored in memory.
+The payment data are stored in memory. So you will need to creat new payment data to see the changes.
 
-## Tasks to Complete
-
-You should try to complete the following tasks. How you do that is up to you, but please do not overcomplicate your solution.
-
-There are many improvements that _could_ be made but as a guideline: please focus on the tasks below, don't worry too much about the user interface, do focus on production services. However, feel free to express your preferences, opinions, and strengths where appropriate.
-
-Please avoid moving files and code unnecessarily to allow reviewers to easily see what was changed.
-
-Tasks:
-
-1. Fetch and display the list of existing payments
-
-   Update the `PaymentsList` page to display the current list of payments from the `payment-api`.
-
-   The `payment-api` returns some example payments by default.
-
-2. Handle the form submit to create new payments
-
-   Implement the form on the `PaymentCreate` page to collect data and create a new payment from that data.
-
-   All payment details entered by the user are required.
-
-   The browser should redirect to the list page where the new, valid payment will be visible.
-
-3. Protect the `payment-api` with an API key
-
-   No-one should have access to an internal service unless authorized. Ensure all requests to the `payment-api` include a valid API key.
-
-   The API key should be a static or hard-coded value. An environment variable would be a good place to configure the key.
-
-4. Assign each new payment a unique `id`
-
-   Generate an ID for each new payment's `id` when created.
-
-   The ID must be:
-
-   - Unique, for all payments
-   - 7 characters long
-   - Made up of the characters "0123456789ABCDEFGHJKLMNPQRSTUVWXYZ".
-
-   Examples of valid IDs are "78GBM5F", "BH6G89N", etc.
-
-   Note: example payments deliberately include a "~" so they will not clash.
